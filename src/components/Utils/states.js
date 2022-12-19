@@ -1,22 +1,26 @@
 
 const MEALS = [
     {
-        meal: 'Sushi',
+        id: 'm1',
+        name: 'Sushi',
         description: 'Fines fish and veggies',
         amount: 22.99
     },
     {
-        meal: 'Schnitzel',
+        id: 'm2',
+        name: 'Schnitzel',
         description: 'A german speciality',
         amount: 16.50
     },
     {
-        meal: 'Barbecue burger',
+        id: 'm3',
+        name: 'Barbecue burger',
         description: 'American, raw, meaty',
         amount: 12.99
     },
     {
-        meal: 'Green Bowl',
+        id: 'm4',
+        name: 'Green Bowl',
         description: 'Healty ... and Green',
         amount: 18.99
     },
