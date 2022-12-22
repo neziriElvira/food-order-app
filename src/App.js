@@ -1,14 +1,15 @@
 import { useState } from "react";
-import Cart from "./components/Header/Cart";
+import Cart from "./components/Cart/Cart";
 import Header from "./components/Header/Header";
 import InfoCard from "./components/InfoCard/InfoCard";
 import Meals from "./components/Meals/Meals";
+import CartProvider from "./components/Utils/CartProvider";
 import { MEALS } from "./components/Utils/states";
 
 
 function App() {
 
-  const mealsInfo = MEALS;
+  const [mealsInfo] = MEALS;
 
   const [cartIsShown, setCartIsShown] = useState(false);
 
@@ -21,12 +22,12 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <CartProvider>
       {cartIsShown && <Cart onClose={hideCartHandler} />}
       <Header onShowCart={showCartHandler} />
       <InfoCard />
       <Meals mealsInfo={mealsInfo} />
-    </div>
+    </CartProvider>
   );
 }
 

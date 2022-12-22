@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import CartContext from "../Utils/cart-context";
 import style from './CartButton.module.css';
-import CartIcon from "./CartItem";
+import CartIcon from "./CartIcon";
 
 const CartButton = (props) => {
 
