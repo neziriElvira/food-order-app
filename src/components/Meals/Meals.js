@@ -9,10 +9,16 @@ const Meals = (props) => {
 
     const [meals, setMeals] = useState([]);
     const [isLoading, setIsLoading] = useState(true)
+    const [httpeError, setHttpError] = useState(null);
 
     useEffect(() => {
         const fetchMeals = async () => {
-            const response = await fetch('https://food-order-87b00-default-rtdb.firebaseio.com/meals.json');
+            const response = await fetch('https://food-order-87b00-default-rtdb.firebaseio.com/meals');
+
+            if (!responseData.ok) {
+                throw new Error('Somethnig went wrong');
+            }
+
             const responseData = await response.json();
 
             const loadedMeals = [];
@@ -30,7 +36,11 @@ const Meals = (props) => {
             setIsLoading(false);
         }
 
-        fetchMeals();
+        fetchMeals().catch((error) => {
+            setIsLoading(false);
+            setHttpError(error.message);
+        });
+
     }, []);
 
     if (isLoading) {
@@ -50,6 +60,14 @@ const Meals = (props) => {
             price={meal.price}
         />
     ));
+
+    if (httpeError) {
+        return (
+            <section className={style.MealsError}>
+                <p>{httpeError}</p>
+            </section>
+        )
+    }
 
     return (
         <section className={style.meals}>
