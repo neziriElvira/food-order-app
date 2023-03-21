@@ -13,13 +13,14 @@ const Meals = (props) => {
 
     useEffect(() => {
         const fetchMeals = async () => {
-            const response = await fetch('https://food-order-87b00-default-rtdb.firebaseio.com/meals');
+            const response = await fetch('https://food-order-87b00-default-rtdb.firebaseio.com/meals.json');
 
-            if (!responseData.ok) {
+            if (!response.ok) {
                 throw new Error('Somethnig went wrong');
             }
-
             const responseData = await response.json();
+
+
 
             const loadedMeals = [];
 
